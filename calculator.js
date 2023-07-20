@@ -27,3 +27,18 @@ let operation = [
         number2: 0,
     },
 ]
+
+function operate(operation) {
+    let operator = operation.operator;
+    if (operator = '+'){
+        return add(operation.number1, operation.number2);
+    } else if (operator = '-'){
+        return subtract(operation.number1, operation.number2);
+    } else if (operator = '*'){
+        return multiply(operation.number1, operation.number2);
+    } else if (operator = '/'){
+        return divide(operation.number1, operation.number2);
+    }
+    console.log(`operator ${operator} was not recognized`);
+    return;
+}
