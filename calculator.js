@@ -14,3 +14,8 @@ function subtract(num1, num2) {
 function multiply(num1, num2) {
     return num1 * num2;
 }
+
+// DIVIDE function, returns the quotient of 2 nums
+function divide (dividend, divisor) {
+    return dividend / divisor;
+}
