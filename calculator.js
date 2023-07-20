@@ -42,6 +42,18 @@ function operate(operation) {
     return;
 }
 
+// TODO
+/// clear
+/// delete instead of +-
+/// updateDisplay()
+/// updateEquation() --- everytime a button is pressed
+/// setOperation --- dict 'x':'*' ..... then switch case for setting the value of operation.operator
+/// round long decimals 
+/// display error message when user tries to divide by 0
+
+
+
+
 // DOM CONTENT
 numberButtons = document.querySelectorAll('.number');
 
