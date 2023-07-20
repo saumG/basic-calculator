@@ -97,6 +97,13 @@ html, body {
     flex: 1;
 }
 
+.button {
+    text-align: center;
+    padding: 10px;
+    border-radius: 100%;
+    border: 1px solid red;
+}
+
 /* LEFT BTNS */
 .left-btns {
     display: flex;
