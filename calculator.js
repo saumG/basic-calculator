@@ -43,11 +43,19 @@ function operate(operation) {
 }
 
 // TODO
-/// clear
-/// delete instead of +-
+let equation = [];
+let matchOperation = {
+    '+':'+',
+    '-':'-',
+    'x':'*',
+    '÷':'/'
+}
+
 /// updateDisplay()
 /// updateEquation() --- everytime a button is pressed
 /// setOperation --- dict 'x':'*' ..... then switch case for setting the value of operation.operator
+/// clear
+/// delete instead of +-
 /// round long decimals 
 /// display error message when user tries to divide by 0
 
