@@ -43,6 +43,7 @@ function operate(operation) {
 }
 
 // TODO
+let currNum = '';
 let equation = [];
 let matchOperation = {
     '+':'+',
@@ -51,8 +52,16 @@ let matchOperation = {
     '÷':'/'
 }
 
-/// updateDisplay()
+function updateDisplayNum(number) {
+    currNum += number.textContent;
+
+}
+
 /// updateEquation() --- everytime a button is pressed
+function updateEquation(button) {
+
+}
+
 /// setOperation --- dict 'x':'*' ..... then switch case for setting the value of operation.operator
 /// clear
 /// delete instead of +-
@@ -75,5 +84,8 @@ equalButton = document.getElementById('equal');
 clearButton = document.getElementById('clear');
 plusMinusButton = document.getElementById('plus-minus');
 percentButton = document.getElementById('percent');
+
+equationDisplay = document.querySelector('.equation');
+valueDisplay = document.querySelector('.value');
 
 // EVENT LISTENERS
