@@ -58,8 +58,15 @@ function updateDisplayNum(number) {
 }
 
 /// updateEquation() --- everytime a button is pressed
-function updateEquation(button) {
+function updateEquation(value, isOperation) {
+    if (isOperation) {
+        equation.append()
+    }
+}
 
+/// updateDisplayEquation
+function updateDisplayEquation() {
+    equationDisplay.textContent = equation.join(' ');
 }
 
 /// setOperation --- dict 'x':'*' ..... then switch case for setting the value of operation.operator
