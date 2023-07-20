@@ -63,6 +63,8 @@ html, body {
     background-color: rgb(187, 187, 187);
     flex: 1;
     max-height: 100px;
+
+    border: 2px solid black;
 }
 
 .equation {
@@ -98,47 +100,11 @@ html, body {
 }
 
 .button {
+    display: flex;
+    flex: 1;
     text-align: center;
     padding: 10px;
     border-radius: 100%;
     border: 1px solid black;
-    flex-grow: 1;
 }
 
-/* LEFT BTNS */
-.left-btns {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    border: 2px solid black;
-}
-
-.top-row,
-.bottom-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    border: 2px solid red;
-}
-
-.numbers.no-zero {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid red;
-}
-
-
-/* RIGHT BTNS */
-.right-btns {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    border: 2px solid black;
-}
