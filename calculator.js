@@ -44,10 +44,16 @@ function operate(operation) {
 
 // DOM CONTENT
 numberButtons = document.querySelectorAll('.number');
+
 divideButton = document.getElementById('divide');
 multiplyButton = document.getElementById('multiply');
 subtractButton = document.getElementById('subtract');
 addButton = document.getElementById('add');
 equalButton = document.getElementById('equal');
+
+
+clearButton = document.getElementById('clear');
+plusMinusButton = document.getElementById('plus-minus');
+percentButton = document.getElementById('percent');
 
 // EVENT LISTENERS
