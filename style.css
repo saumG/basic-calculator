@@ -101,7 +101,8 @@ html, body {
     text-align: center;
     padding: 10px;
     border-radius: 100%;
-    border: 1px solid red;
+    border: 1px solid black;
+    flex-grow: 1;
 }
 
 /* LEFT BTNS */
@@ -110,6 +111,25 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    border: 2px solid black;
+}
+
+.top-row,
+.bottom-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border: 2px solid red;
+}
+
+.numbers.no-zero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid red;
 }
 
 
@@ -119,4 +139,6 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    border: 2px solid black;
 }
