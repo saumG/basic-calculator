@@ -56,9 +56,34 @@ html, body {
 
 .display {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    justify-content: center;
     align-items: flex-end;
-    background-color: grey;
+    background-color: rgb(187, 187, 187);
     flex: 1;
     max-height: 100px;
+}
+
+.equation {
+    display: flex;
+    align-items: flex-end;
+    justify-content: right;
+    font-size: 16px;
+    padding: 2px 8px;
+
+    width: fit-content;
+    max-height: 20px;
+    border: 1px solid red;
+}
+
+.value {
+    display: flex;
+    align-items: flex-end;
+    justify-content: right;
+    font-size: 54px;
+    padding: 4px 8px;
+
+    width: fit-content;
+    max-height: 80px;
+    border: 1px solid blue;
 }
