@@ -19,3 +19,11 @@ function multiply(num1, num2) {
 function divide (dividend, divisor) {
     return dividend / divisor;
 }
+
+let operation = [
+    {
+        number1: 0,
+        operator: '+',
+        number2: 0,
+    },
+]
