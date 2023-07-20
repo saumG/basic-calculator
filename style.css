@@ -41,17 +41,21 @@ html, body {
     align-items: center;
     justify-content: center;
 
-    border: 2px solid red;
+    background-color: black;
+
+    /* border: 2px solid red; */
 }
 
 .calculator {
     display: flex;
     flex-direction: column;
-        
+    background-color: black;
+
     width: 450px;
     height: 700px;
+    gap: 6px;
 
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 /* DISPLAY */
@@ -63,6 +67,8 @@ html, body {
     background-color: rgb(187, 187, 187);
     flex: 1;
     max-height: 100px;
+    border-radius: 24px;
+    margin: 4px;
 
     border: 2px solid black;
 }
@@ -75,8 +81,9 @@ html, body {
     padding: 2px 8px;
 
     width: fit-content;
-    max-height: 20px;
-    border: 1px solid red;
+    max-height: 25px;
+    /* border: 1px solid red; */
+    margin-right: 8px;
 }
 
 .value {
@@ -84,11 +91,12 @@ html, body {
     align-items: flex-end;
     justify-content: right;
     font-size: 54px;
-    padding: 4px 8px;
 
     width: fit-content;
-    max-height: 80px;
-    border: 1px solid blue;
+    max-height: 75px;
+    /* border: 1px solid blue; */
+    margin-right: 8px;
+    padding: 2px 8px;
 }
 
 /* BTNS */
@@ -110,7 +118,7 @@ html, body {
     border-radius: 50%;
     border: 1px solid black;
     margin: 4px;
-    background-color: darkgrey;
+    background-color: rgb(69, 69, 69);
     color: white;
     font-size: 48px;
 }
@@ -118,5 +126,14 @@ html, body {
 .double {
     display: flex;
     flex: 2 1 200px;
+}
+
+.operation {
+    background-color: orange;
+}
+
+.extra {
+    background-color: lightgrey;
+    color: black;
 }
 
