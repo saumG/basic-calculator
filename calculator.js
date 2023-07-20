@@ -60,6 +60,8 @@ function updateDisplayNum(number) {
 /// updateEquation() --- everytime a button is pressed
 function updateEquation(value, isOperation) {
     if (isOperation) {
+        equation.append(matchOperation[value]);
+    } else {
         equation.append()
     }
 }
