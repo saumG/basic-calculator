@@ -1,21 +1,22 @@
 // ADD function, adds two nums
 function add(num1, num2) {
-    return num1 + num2;
+    return parseInt(num1) + parseInt(num2);
 }
 
 // SUBTRACT funciton, subtracts num2 from num1
 function subtract(num1, num2) {
-    return num1 - num2;
+    console.log(`subtracting`);
+    return parseInt(num1) - parseInt(num2);
 }
 
 // MULTIPLY function, returns the product of 2 nums
 function multiply(num1, num2) {
-    return num1 * num2;
+    return parseInt(num1) * parseInt(num2);
 }
 
 // DIVIDE function, returns the quotient of 2 nums
 function divide (dividend, divisor) {
-    return dividend / divisor;
+    return parseInt(dividend) / parseInt(divisor);
 }
 
 //OPERATION FUNCTIONS
@@ -23,13 +24,14 @@ function divide (dividend, divisor) {
 
 function operate(operation) {
     let operator = operation[1];
-    if (operator = '+'){
+    console.log(operator)
+    if (operator === '+'){
         return add(operation[0], operation[2]);
-    } else if (operator = '-'){
+    } else if (operator === '-'){
         return subtract(operation[0], operation[2]);
-    } else if (operator = '*'){
+    } else if (operator === '*'){
         return multiply(operation[0], operation[2]);
-    } else if (operator = '/'){
+    } else if (operator === '/'){
         return divide(operation[0], operation[2]);
     }
     console.log(`operator ${operator} was not recognized`);
@@ -39,7 +41,7 @@ function operate(operation) {
 // TODO
 let currNum = '';
 let currOperator = '';
-let equation = [];
+let equation = [''];
 let matchOperation = {
     '+':'+',
     '-':'-',
@@ -63,10 +65,16 @@ function numPressed(button) {
     } else {
         currNum += button.textContent;
     }
-
-    equation[equation.length - 1] = currNum;
-    updateDisplayEquation();
+    
+    if (isOperator(equation[equation.length - 1])){
+        equation.push(currNum);
+    } else {
+        equation[equation.length - 1] = currNum;
+    }
+    
     updateDisplayNum();
+    updateDisplayEquation();
+
 }
 
 function operationPressed(button) {
@@ -85,9 +93,12 @@ function isOperator(value) {
 }
 
 function cleanEquationLastValue() {
+    console.log(`cleaning eq ${equation.join(' ')}`)
     if (isOperator(equation[equation - 1])) {
         equation.pop()
-        return equation;
+    }
+    if (equation[0] === ' '){
+        equation.shift();
     }
     return equation;
 }
@@ -95,44 +106,49 @@ function cleanEquationLastValue() {
 // COMPUTE FUNCTION
 function computeEquation(equation) {
     equation = cleanEquationLastValue();
+    console.log(`cleaned eq ${equation.join(' ')}`)
 
-    while (equation.length > 1) {
-        if (equation.indexOf('*')) {
+    // while (equation.length > 1) {
+        if (equation.indexOf('*') != -1) {
             opIdx = equation.indexOf('*');
-            operation = equation.slice(opIdx - 1, opIdx + 1);
+            operation = equation.slice(opIdx - 1, opIdx + 2);
             console.log(`operating on ${operation.join(' ')}`);
             result = operate(operation);
             console.log(result);
-            equation = equation.splice(opIdx - 1, 3, result);
+            equation.splice(opIdx - 1, 3, result);
 
 
-        } else if (equation.indexOf('/')){
+        } else if (equation.indexOf('/')!= -1){
             opIdx = equation.indexOf('/');
-            operation = equation.slice(opIdx - 1, opIdx + 1);
+            operation = equation.slice(opIdx - 1, opIdx + 2);
             console.log(`operating on ${operation.join(' ')}`);
             result = operate(operation);
             console.log(result);
-            equation = equation.splice(opIdx - 1, 3, result);
+            equation.splice(opIdx - 1, 3, result);
 
-        } else if (equation.indexOf('+')) {
+        } else if (equation.indexOf('+')!= -1) {
             opIdx = equation.indexOf('+');
-            operation = equation.slice(opIdx - 1, opIdx + 1);
+            operation = equation.slice(opIdx - 1, opIdx + 2);
             console.log(`operating on ${operation.join(' ')}`);
             result = operate(operation);
             console.log(result);
-            equation = equation.splice(opIdx - 1, 3, result);
+            equation.splice(opIdx - 1, 3, result);
+            console.log(`post splicing... new eq ${equation.join(' ')}`)
 
-        } else if (equation.indexOf('-')) {
+        } else if (equation.indexOf('-')!= -1) {
+            console.log('subtracting')
             opIdx = equation.indexOf('-');
-            operation = equation.slice(opIdx - 1, opIdx + 1);
+            operation = equation.slice(opIdx - 1, opIdx + 2);
             console.log(`operating on ${operation.join(' ')}`);
             result = operate(operation);
             console.log(result);
-            equation = equation.splice(opIdx - 1, 3, result);
+            equation.splice(opIdx - 1, 3, result);
         }
-    }
+    //}
     //set dispValue to last value in equation;
-    valueDisplay.textContent = operation[0];
+    valueDisplay.textContent = equation[equation.length - 1];
+    console.log(`value displayed... new eq ${equation.join('_')}`)
+
     equation = [];
     currNum = '';
 }
@@ -158,11 +174,11 @@ valueDisplay = document.querySelector('.value');
 
 // EVENT LISTENERS
 numberButtons.forEach(number => {
-    number.addEventListener('click', numPressed(number))
+    number.addEventListener('click', () => {numPressed(number)})
 });
 
 operationButtons.forEach(operation => {
-    operation.addEventListener('click', operationPressed(operation))
+    operation.addEventListener('click', () => {operationPressed(operation)})
 });
 
-equalButton.addEventListener('click', computeEquation(equation));
+equalButton.addEventListener('click', () =>  {computeEquation(equation)});
