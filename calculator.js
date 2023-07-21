@@ -44,6 +44,7 @@ function operate(operation) {
 
 // TODO
 let currNum = '';
+let currOperator = '';
 let equation = [];
 let matchOperation = {
     '+':'+',
@@ -54,6 +55,7 @@ let matchOperation = {
 
 function updateDisplayNum() {
     valueDisplay.textContent = currNum;
+    console.log(`updated display num to ${currNum}`);
 }
 
 /// updateEquation() --- everytime a button is pressed
@@ -68,6 +70,7 @@ function updateEquation(value, isOperation) {
 /// updateDisplayEquation
 function updateDisplayEquation() {
     equationDisplay.textContent = equation.join(' ');
+    console.log(`updated display eq to ${equationDisplay.textContent}`);
 }
 
 // set displayVal to 0
@@ -104,7 +107,16 @@ function numPressed(button) {
         //replace it with new operator
     
     // updateDisplayEquation
-
+function operationPressed(button) {
+    currOperator = matchOperation[button.textContent];
+    if ('+-/*'.includes(equation[equation.length - 1])) {
+        equation[equation.length - 1] = currOperator;
+    } else {
+        equation.push(currOperator);
+        currNum = '0'
+    }
+    updateDisplayEquation();
+}
 
 
 
