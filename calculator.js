@@ -103,10 +103,24 @@ function cleanEquationLastValue() {
     return equation;
 }
 
+let idxTracker = {
+    '+': 0,
+    '-': 0,
+    '*': 0,
+    '/': 0,
+}
+
+
 // COMPUTE FUNCTION
 function computeEquation(equation) {
     equation = cleanEquationLastValue();
     console.log(`cleaned eq ${equation.join(' ')}`)
+
+    for (const operator in idxTracker) {
+        idxTracker[operator] = equation.indexOf(operator);
+    }
+
+    
 
     while (equation.length > 2) {
         if (equation.indexOf('*') != -1) {
