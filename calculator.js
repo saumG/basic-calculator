@@ -109,7 +109,7 @@ function numPressed(button) {
     // updateDisplayEquation
 function operationPressed(button) {
     currOperator = matchOperation[button.textContent];
-    if ('+-/*'.includes(equation[equation.length - 1])) {
+    if (isOperator(equation[equation.length - 1])) {
         equation[equation.length - 1] = currOperator;
     } else {
         equation.push(currOperator);
@@ -118,6 +118,25 @@ function operationPressed(button) {
     updateDisplayEquation();
 }
 
+function isOperator(value) {
+    return '+-/*'.includes(value);
+}
+
+function cleanEquationLastValue() {
+    if (isOperator(equation[equation - 1])) {
+        equation.pop()
+        return equation;
+    }
+    return equation;
+}
+
+// COMPUTE FUNCTION
+function computeEquation(equation) {
+
+    while (equation.length > 1) {
+
+    }
+}
 
 
 /// setOperation --- dict 'x':'*' ..... then switch case for setting the value of operation.operator
