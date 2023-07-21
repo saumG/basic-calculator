@@ -178,32 +178,33 @@ function clear() {
 }
 
 /// delete instead of +-
-function deleteVal() {
-    if (currNum.length === 1) {
-        currNum = '0';
-    } else {
-        currNum = currNum.slice(0, -1);
-    }
-
-    if (equation.length === 0) {
-        equation = [''];
-    } else if (equation.length === 1) {
-        equation = [''];
-        currOperator = '';
-    } else {
-        const lastElement = equation[equation.length - 1];
-        if (!isOperator(lastElement)) {
-            equation[equation.length - 1] = lastElement.slice(0, -1);
-            if (equation[equation.length - 1] === '') {
-                equation.pop();
-            }
-        } else {
+function deleteVal(){
+    console.log(equation)
+    if (equation.length != 0){
+        console.log(`cequation length is ${equation.length}`)
+        let lastElement = equation[equation.length -1].slice(0,-1)
+        equation[equation.length - 1] = lastElement;
+        
+        if (lastElement === ''){
+            console.log(`last element is empty..removing it`);
             equation.pop();
         }
-    }
+        console.log(equation)
+        if (equation === []){
+            currNum = '0';
+            equation = [''];
+            return;
 
-    updateDisplayNum();
-    updateDisplayEquation();
+        }else if (isOperator(equation[equation.length - 1]) && equation.length > 0){
+            currNum = equation[equation.length - 2];
+        }else {
+            currNum = equation[equation.length - 1];
+        }
+        updateDisplayNum();
+        updateDisplayEquation();
+    }else {
+        return;
+    }
 }
 /// round long decimals 
 /// display error message when user tries to divide by 0
