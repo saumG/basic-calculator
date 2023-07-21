@@ -105,6 +105,8 @@ function cleanEquationLastValue() {
 
 let dictMD;
 let dictAS;
+let lowestIdxAS = 0;
+let lowestIdxMD = 0;
 
 function findLowestNonNegativeValue(dict) {
     let lowestNonNegative = Infinity;
@@ -125,52 +127,31 @@ function computeEquation(equation) {
     equation = cleanEquationLastValue();
     console.log(`cleaned eq ${equation.join(' ')}`)
 
-    dictMD = {
-        '*': equation.indexOf('*'),
-        '/': equation.indexOf('/'),
-    }
-    dictAS = {
-        '+': equation.indexOf('+'),
-        '-': equation.indexOf('-'),
-    }
-
-    
-
     while (equation.length > 2) {
-        if (equation.indexOf('*') != -1) {
-            opIdx = equation.indexOf('*');
-            operation = equation.slice(opIdx - 1, opIdx + 2);
-            console.log(`operating on ${operation.join(' ')}`);
-            result = operate(operation);
-            console.log(result);
-            equation.splice(opIdx - 1, 3, result);
-
-        } else if (equation.indexOf('/')!= -1){
-            opIdx = equation.indexOf('/');
-            operation = equation.slice(opIdx - 1, opIdx + 2);
-            console.log(`operating on ${operation.join(' ')}`);
-            result = operate(operation);
-            console.log(result);
-            equation.splice(opIdx - 1, 3, result);
-
-        } else if (equation.indexOf('+')!= -1) {
-            opIdx = equation.indexOf('+');
-            operation = equation.slice(opIdx - 1, opIdx + 2);
-            console.log(`operating on ${operation.join(' ')}`);
-            result = operate(operation);
-            console.log(result);
-            equation.splice(opIdx - 1, 3, result);
-            console.log(`post splicing... new eq ${equation.join(' ')}`)
-
-        } else if (equation.indexOf('-')!= -1) {
-            console.log('subtracting')
-            opIdx = equation.indexOf('-');
-            operation = equation.slice(opIdx - 1, opIdx + 2);
-            console.log(`operating on ${operation.join(' ')}`);
-            result = operate(operation);
-            console.log(result);
-            equation.splice(opIdx - 1, 3, result);
+        dictMD = {
+            '*': equation.indexOf('*'),
+            '/': equation.indexOf('/'),
         }
+        dictAS = {
+            '+': equation.indexOf('+'),
+            '-': equation.indexOf('-'),
+        }
+    
+        lowestIdxMD = findLowestNonNegativeValue(dictMD);
+        lowestIdxAS = findLowestNonNegativeValue(dictAS);
+    
+        if (lowestIdxMD != -1) {
+            opIdx = lowestIdxMD;
+        }else {
+            opIdx = lowestIdxAS;
+        }
+
+        operation = equation.slice(opIdx - 1, opIdx + 2);
+        console.log(`operating on ${operation.join(' ')}`);
+        result = operate(operation);
+        console.log(result);
+        equation.splice(opIdx - 1, 3, result);
+
     }
     console.log(`equation length is ${equation.length}`)
 
