@@ -2,23 +2,23 @@
 function add(num1, num2) {
     
     console.log(`${parseInt(num1)}`);
-    return (parseFloat(num1) + parseFloat(num2)).toFixed(5) * 1;
+    return ((parseFloat(num1) + parseFloat(num2)).toFixed(5) * 1).toString();
 }
 
 // SUBTRACT funciton, subtracts num2 from num1
 function subtract(num1, num2) {
     console.log(`subtracting`);
-    return (parseFloat(num1) - parseFloat(num2)).toFixed(5) * 1;
+    return ((parseFloat(num1) - parseFloat(num2)).toFixed(5) * 1).toString();
 }
 
 // MULTIPLY function, returns the product of 2 nums
 function multiply(num1, num2) {
-    return (parseFloat(num1) * parseFloat(num2)).toFixed(5) * 1;
+    return ((parseFloat(num1) * parseFloat(num2)).toFixed(5) * 1).toString();
 }
 
 // DIVIDE function, returns the quotient of 2 nums
 function divide (dividend, divisor) {
-    return (parseFloat(dividend) / parseFloat(divisor)).toFixed(5) * 1;
+    return ((parseFloat(dividend) / parseFloat(divisor)).toFixed(5) * 1).toString();
 }
 
 //OPERATION FUNCTION
@@ -166,18 +166,42 @@ function computeEquation(equation) {
     console.log(`value displayed... new eq ${equation.join('_')}`)
 
     equation = [];
-    currNum = '';
+    currNum = valueDisplay.textContent;
 }
 
 /// clear
 function clear() {
     equation = ['0'];
-    currNum = 0;
+    currNum = '0';
     updateDisplayEquation();
     updateDisplayNum();
 }
 
 /// delete instead of +-
+function deleteVal(){
+    console.log(equation)
+    if (equation.length != 0){
+        console.log(`cequation length is ${equation.length}`)
+        let lastElement = equation[equation.length -1].slice(0,-1)
+        equation[equation.length - 1] = lastElement;
+        if (lastElement === ''){
+            console.log(`last element is empty..removing it`);
+            equation.pop();
+        }
+        console.log(equation)
+
+        if (isOperator(equation[equation.length - 1])){
+            currNum = equation[equation.length - 2];
+        }else {
+            currNum = equation[equation.length - 1];
+        }
+    }else {
+        return;
+    }
+    updateDisplayNum();
+    updateDisplayEquation();
+
+}
 /// round long decimals 
 /// display error message when user tries to divide by 0
 
@@ -189,7 +213,7 @@ equalButton = document.getElementById('equal');
 
 
 clearButton = document.getElementById('clear');
-plusMinusButton = document.getElementById('plus-minus');
+deleteButton = document.getElementById('delete');
 percentButton = document.getElementById('percent');
 
 equationDisplay = document.querySelector('.equation');
@@ -207,3 +231,7 @@ operationButtons.forEach(operation => {
 equalButton.addEventListener('click', () =>  {computeEquation(equation)});
 
 clearButton.addEventListener('click', () =>  {clear()});
+
+deleteButton.addEventListener('click', () =>  {deleteVal()});
+
+
