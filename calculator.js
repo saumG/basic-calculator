@@ -95,38 +95,46 @@ function cleanEquationLastValue() {
 // COMPUTE FUNCTION
 function computeEquation(equation) {
     equation = cleanEquationLastValue();
+
     while (equation.length > 1) {
         if (equation.indexOf('*')) {
             opIdx = equation.indexOf('*');
-            operation = equation.slice(opIdx - 1, opIdx + 1)
-            console.log(`operating on ${operation.join(' ')}`)
-            result = operate(operation)
-            equation = equation.splice(opIdx - 1, 3, result)
+            operation = equation.slice(opIdx - 1, opIdx + 1);
+            console.log(`operating on ${operation.join(' ')}`);
+            result = operate(operation);
+            console.log(result);
+            equation = equation.splice(opIdx - 1, 3, result);
+
 
         } else if (equation.indexOf('/')){
             opIdx = equation.indexOf('/');
-            operation = equation.slice(opIdx - 1, opIdx + 1)
-            console.log(`operating on ${operation.join(' ')}`)
-            result = operate(operation)
-            equation = equation.splice(opIdx - 1, 3, result)
+            operation = equation.slice(opIdx - 1, opIdx + 1);
+            console.log(`operating on ${operation.join(' ')}`);
+            result = operate(operation);
+            console.log(result);
+            equation = equation.splice(opIdx - 1, 3, result);
 
         } else if (equation.indexOf('+')) {
             opIdx = equation.indexOf('+');
-            operation = equation.slice(opIdx - 1, opIdx + 1)
-            console.log(`operating on ${operation.join(' ')}`)
-            result = operate(operation)
-            equation = equation.splice(opIdx - 1, 3, result)
+            operation = equation.slice(opIdx - 1, opIdx + 1);
+            console.log(`operating on ${operation.join(' ')}`);
+            result = operate(operation);
+            console.log(result);
+            equation = equation.splice(opIdx - 1, 3, result);
 
         } else if (equation.indexOf('-')) {
             opIdx = equation.indexOf('-');
-            operation = equation.slice(opIdx - 1, opIdx + 1)
-            console.log(`operating on ${operation.join(' ')}`)
-            result = operate(operation)
-            equation = equation.splice(opIdx - 1, 3, result)
+            operation = equation.slice(opIdx - 1, opIdx + 1);
+            console.log(`operating on ${operation.join(' ')}`);
+            result = operate(operation);
+            console.log(result);
+            equation = equation.splice(opIdx - 1, 3, result);
         }
     }
     //set dispValue to last value in equation;
     valueDisplay.textContent = operation[0];
+    equation = [];
+    currNum = '';
 }
 
 
