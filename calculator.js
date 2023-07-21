@@ -54,6 +54,8 @@ let matchOperation = {
 
 function updateDisplayNum(number) {
     currNum += number.textContent;
+    equation[equation.length - 1] = currNum;
+    valueDisplay.textContent = currNum;
 
 }
 
@@ -70,6 +72,22 @@ function updateEquation(value, isOperation) {
 function updateDisplayEquation() {
     equationDisplay.textContent = equation.join(' ');
 }
+
+// set displayVal to 0
+// set displayEq to empty
+
+// number is pressed 
+    // if currNum is 0 and pressed button is not .
+        // remove char from currNum and add pressed button
+    // else... 
+        // add button to currNum string
+    
+    // update last value of equation array to currNum
+    //updateDisplayEquation
+    //displayVal is currNum
+
+
+
 
 /// setOperation --- dict 'x':'*' ..... then switch case for setting the value of operation.operator
 /// clear
