@@ -86,6 +86,16 @@ function updateDisplayEquation() {
     //updateDisplayEquation
     //displayVal is currNum
 
+// operation is pressed 
+    // set operation.operator to matchoperation[button]
+    // if last element in eq array is not operator
+        // add operator to eq array
+        // set currNum to '0'
+    // if last element in eq array is an operator
+        //replace it with new operator
+    
+    // updateDisplayEquation
+
 
 
 
