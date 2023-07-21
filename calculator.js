@@ -103,21 +103,35 @@ function cleanEquationLastValue() {
     return equation;
 }
 
-let idxTracker = {
-    '+': 0,
-    '-': 0,
-    '*': 0,
-    '/': 0,
-}
+let dictMD;
+let dictAS;
 
+function findLowestNonNegativeValue(dict) {
+    let lowestNonNegative = Infinity;
+
+    for (const key in dict) {
+        const value = dict[key];
+        if (value !== -1 && value < lowestNonNegative) {
+            lowestNonNegative = value;
+        }
+    }
+
+    return lowestNonNegative === Infinity ? -1 : lowestNonNegative;
+} 
 
 // COMPUTE FUNCTION
 function computeEquation(equation) {
+
     equation = cleanEquationLastValue();
     console.log(`cleaned eq ${equation.join(' ')}`)
 
-    for (const operator in idxTracker) {
-        idxTracker[operator] = equation.indexOf(operator);
+    dictMD = {
+        '*': equation.indexOf('*'),
+        '/': equation.indexOf('/'),
+    }
+    dictAS = {
+        '+': equation.indexOf('+'),
+        '-': equation.indexOf('-'),
     }
 
     
