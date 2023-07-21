@@ -19,24 +19,18 @@ function divide (dividend, divisor) {
 }
 
 //OPERATION FUNCTIONS
-let operation = [
-    {
-        number1: 0,
-        operator: '+',
-        number2: 0,
-    },
-]
+
 
 function operate(operation) {
-    let operator = operation.operator;
+    let operator = operation[1];
     if (operator = '+'){
-        return add(operation.number1, operation.number2);
+        return add(operation[0], operation[2]);
     } else if (operator = '-'){
-        return subtract(operation.number1, operation.number2);
+        return subtract(operation[0], operation[2]);
     } else if (operator = '*'){
-        return multiply(operation.number1, operation.number2);
+        return multiply(operation[0], operation[2]);
     } else if (operator = '/'){
-        return divide(operation.number1, operation.number2);
+        return divide(operation[0], operation[2]);
     }
     console.log(`operator ${operator} was not recognized`);
     return;
@@ -58,33 +52,10 @@ function updateDisplayNum() {
     console.log(`updated display num to ${currNum}`);
 }
 
-/// updateEquation() --- everytime a button is pressed
-function updateEquation(value, isOperation) {
-    if (isOperation) {
-        equation.append(matchOperation[value]);
-    } else {
-        equation.append()
-    }
-}
-
-/// updateDisplayEquation
 function updateDisplayEquation() {
     equationDisplay.textContent = equation.join(' ');
     console.log(`updated display eq to ${equationDisplay.textContent}`);
 }
-
-// set displayVal to 0
-// set displayEq to empty
-
-// number is pressed 
-    // if currNum is 0 and pressed button is not .
-        // remove char from currNum and add pressed button
-    // else... 
-        // add button to currNum string
-    
-    // update last value of equation array to currNum
-    //updateDisplayEquation
-    //displayVal is currNum
 
 function numPressed(button) {
     if (currNum === '0' && button.textContent != '.') {
@@ -98,15 +69,6 @@ function numPressed(button) {
     updateDisplayNum();
 }
 
-// operation is pressed 
-    // set operation.operator to matchoperation[button]
-    // if last element in eq array is not operator
-        // add operator to eq array
-        // set currNum to '0'
-    // if last element in eq array is an operator
-        //replace it with new operator
-    
-    // updateDisplayEquation
 function operationPressed(button) {
     currOperator = matchOperation[button.textContent];
     if (isOperator(equation[equation.length - 1])) {
@@ -132,10 +94,39 @@ function cleanEquationLastValue() {
 
 // COMPUTE FUNCTION
 function computeEquation(equation) {
-
+    equation = cleanEquationLastValue();
     while (equation.length > 1) {
+        if (equation.indexOf('*')) {
+            opIdx = equation.indexOf('*');
+            operation = equation.slice(opIdx - 1, opIdx + 1)
+            console.log(`operating on ${operation.join(' ')}`)
+            result = operate(operation)
+            equation = equation.splice(opIdx - 1, 3, result)
 
+        } else if (equation.indexOf('/')){
+            opIdx = equation.indexOf('/');
+            operation = equation.slice(opIdx - 1, opIdx + 1)
+            console.log(`operating on ${operation.join(' ')}`)
+            result = operate(operation)
+            equation = equation.splice(opIdx - 1, 3, result)
+
+        } else if (equation.indexOf('+')) {
+            opIdx = equation.indexOf('+');
+            operation = equation.slice(opIdx - 1, opIdx + 1)
+            console.log(`operating on ${operation.join(' ')}`)
+            result = operate(operation)
+            equation = equation.splice(opIdx - 1, 3, result)
+
+        } else if (equation.indexOf('-')) {
+            opIdx = equation.indexOf('-');
+            operation = equation.slice(opIdx - 1, opIdx + 1)
+            console.log(`operating on ${operation.join(' ')}`)
+            result = operate(operation)
+            equation = equation.splice(opIdx - 1, 3, result)
+        }
     }
+    //set dispValue to last value in equation;
+    valueDisplay.textContent = operation[0];
 }
 
 
