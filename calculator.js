@@ -52,11 +52,8 @@ let matchOperation = {
     '÷':'/'
 }
 
-function updateDisplayNum(number) {
-    currNum += number.textContent;
-    equation[equation.length - 1] = currNum;
+function updateDisplayNum() {
     valueDisplay.textContent = currNum;
-
 }
 
 /// updateEquation() --- everytime a button is pressed
@@ -85,6 +82,18 @@ function updateDisplayEquation() {
     // update last value of equation array to currNum
     //updateDisplayEquation
     //displayVal is currNum
+
+function numPressed(button) {
+    if (currNum === '0' && button.textContent != '.') {
+        currNum = button.textContent;
+    } else {
+        currNum += button.textContent;
+    }
+
+    equation[equation.length - 1] = currNum;
+    updateDisplayEquation();
+    updateDisplayNum();
+}
 
 // operation is pressed 
     // set operation.operator to matchoperation[button]
