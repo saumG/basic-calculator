@@ -170,6 +170,13 @@ function computeEquation(equation) {
 }
 
 /// clear
+function clear() {
+    equation = ['0'];
+    currNum = 0;
+    updateDisplayEquation();
+    updateDisplayNum();
+}
+
 /// delete instead of +-
 /// round long decimals 
 /// display error message when user tries to divide by 0
@@ -198,3 +205,5 @@ operationButtons.forEach(operation => {
 });
 
 equalButton.addEventListener('click', () =>  {computeEquation(equation)});
+
+clearButton.addEventListener('click', () =>  {clear()});
