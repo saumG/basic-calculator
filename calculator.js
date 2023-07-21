@@ -137,23 +137,15 @@ function computeEquation(equation) {
     currNum = '';
 }
 
-
-/// setOperation --- dict 'x':'*' ..... then switch case for setting the value of operation.operator
 /// clear
 /// delete instead of +-
 /// round long decimals 
 /// display error message when user tries to divide by 0
 
 
-
-
 // DOM CONTENT
 numberButtons = document.querySelectorAll('.number');
-
-divideButton = document.getElementById('divide');
-multiplyButton = document.getElementById('multiply');
-subtractButton = document.getElementById('subtract');
-addButton = document.getElementById('add');
+operationButtons = document.querySelectorAll('.operation');
 equalButton = document.getElementById('equal');
 
 
@@ -165,3 +157,12 @@ equationDisplay = document.querySelector('.equation');
 valueDisplay = document.querySelector('.value');
 
 // EVENT LISTENERS
+numberButtons.forEach(number => {
+    number.addEventListener('click', numPressed(number))
+});
+
+operationButtons.forEach(operation => {
+    operation.addEventListener('click', operationPressed(operation))
+});
+
+equalButton.addEventListener('click', computeEquation(equation));
