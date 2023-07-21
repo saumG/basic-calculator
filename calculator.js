@@ -108,7 +108,7 @@ function computeEquation(equation) {
     equation = cleanEquationLastValue();
     console.log(`cleaned eq ${equation.join(' ')}`)
 
-    // while (equation.length > 1) {
+    while (equation.length > 2) {
         if (equation.indexOf('*') != -1) {
             opIdx = equation.indexOf('*');
             operation = equation.slice(opIdx - 1, opIdx + 2);
@@ -116,7 +116,6 @@ function computeEquation(equation) {
             result = operate(operation);
             console.log(result);
             equation.splice(opIdx - 1, 3, result);
-
 
         } else if (equation.indexOf('/')!= -1){
             opIdx = equation.indexOf('/');
@@ -144,8 +143,9 @@ function computeEquation(equation) {
             console.log(result);
             equation.splice(opIdx - 1, 3, result);
         }
-    //}
-    //set dispValue to last value in equation;
+    }
+    console.log(`equation length is ${equation.length}`)
+
     valueDisplay.textContent = equation[equation.length - 1];
     console.log(`value displayed... new eq ${equation.join('_')}`)
 
