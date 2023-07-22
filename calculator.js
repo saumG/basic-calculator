@@ -7,7 +7,6 @@ function add(num1, num2) {
 
 // SUBTRACT funciton, subtracts num2 from num1
 function subtract(num1, num2) {
-    console.log(`subtracting`);
     return ((parseFloat(num1) - parseFloat(num2)).toFixed(5) * 1).toString();
 }
 
@@ -156,6 +155,12 @@ function computeEquation(equation) {
         operation = equation.slice(opIdx - 1, opIdx + 2);
         console.log(`operating on ${operation.join(' ')}`);
         result = operate(operation);
+        if (result === "Infinity"){
+            currNum = '0';
+            equation = [''];
+            valueDisplay.textContent = "BRUHHH!";
+            return;
+        }
         console.log(`result is ${result}`);
         equation.splice(opIdx - 1, 3, result);
 
@@ -197,12 +202,12 @@ function deleteVal(){
             }
         }
         if (isOperator(equation[equation.length - 1])){
-            currNum = equation[equation.length - 2];
+            currNum = '0';
         }else{
             currNum = equation[equation.length - 1];
         }
     }
-    
+
     if (equation === [''] || equation.length === 0){
         console.log(`equation was empty`);
         equation = ['0'];
@@ -212,7 +217,6 @@ function deleteVal(){
     updateDisplayEquation();
 
 }
-/// round long decimals 
 /// display error message when user tries to divide by 0
 
 
