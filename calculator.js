@@ -1,23 +1,25 @@
+MAX_DECIMAL_POINTS = 8;
+
 // ADD function, adds two nums
 function add(num1, num2) {
     
     console.log(`${parseInt(num1)}`);
-    return ((parseFloat(num1) + parseFloat(num2)).toFixed(5) * 1).toString();
+    return ((parseFloat(num1) + parseFloat(num2)).toFixed(MAX_DECIMAL_POINTS) * 1).toString();
 }
 
 // SUBTRACT funciton, subtracts num2 from num1
 function subtract(num1, num2) {
-    return ((parseFloat(num1) - parseFloat(num2)).toFixed(5) * 1).toString();
+    return ((parseFloat(num1) - parseFloat(num2)).toFixed(MAX_DECIMAL_POINTS) * 1).toString();
 }
 
 // MULTIPLY function, returns the product of 2 nums
 function multiply(num1, num2) {
-    return ((parseFloat(num1) * parseFloat(num2)).toFixed(5) * 1).toString();
+    return ((parseFloat(num1) * parseFloat(num2)).toFixed(MAX_DECIMAL_POINTS) * 1).toString();
 }
 
 // DIVIDE function, returns the quotient of 2 nums
 function divide (dividend, divisor) {
-    return ((parseFloat(dividend) / parseFloat(divisor)).toFixed(5) * 1).toString();
+    return ((parseFloat(dividend) / parseFloat(divisor)).toFixed(MAX_DECIMAL_POINTS) * 1).toString();
 }
 
 //OPERATION FUNCTION
@@ -219,8 +221,15 @@ function deleteVal(){
     updateDisplayEquation();
 
 }
-/// display error message when user tries to divide by 0
 
+function percentPressed(){
+    console.log("")
+    indexPrePercentage = equation.lastIndexOf(currNum);
+    currNum = divide(currNum, 100);
+    equation[indexPrePercentage] = currNum;
+    updateDisplayNum();
+    updateDisplayEquation();
+}
 
 // DOM CONTENT
 numberButtons = document.querySelectorAll('.number');
@@ -250,4 +259,4 @@ clearButton.addEventListener('click', () =>  {clear()});
 
 deleteButton.addEventListener('click', () =>  {deleteVal()});
 
-
+percentButton.addEventListener('click', () =>  {percentPressed()});
