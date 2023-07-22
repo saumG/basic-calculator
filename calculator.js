@@ -59,7 +59,9 @@ function updateDisplayEquation() {
 }
 
 function numPressed(button) {
-    if (currNum === '0' && button.textContent != '.') {
+    if (currNum.includes('.') && button.textContent == '.'){
+        return;
+    } else if (currNum === '0' && button.textContent != '.') {
         currNum = button.textContent;
     } else {
         currNum += button.textContent;
