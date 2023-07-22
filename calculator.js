@@ -180,31 +180,37 @@ function clear() {
 /// delete instead of +-
 function deleteVal(){
     console.log(equation)
-    if (equation.length != 0){
-        console.log(`cequation length is ${equation.length}`)
-        let lastElement = equation[equation.length -1].slice(0,-1)
-        equation[equation.length - 1] = lastElement;
-        
-        if (lastElement === ''){
-            console.log(`last element is empty..removing it`);
-            equation.pop();
+    if (equation === [''] || equation.length === 0){
+        console.log(`equation was empty`);
+        equation = ['0'];
+        currNum = '0';
+    } else {
+        lastElement = equation[equation.length - 1];
+        if (isOperator(lastElement)){
+            cleanEquationLastValue();
+        }else{
+            if (lastElement.length === 1){
+                equation.pop()
+            }else {
+                lastElement = lastElement.slice(0, -1);
+                equation[equation.length - 1] = lastElement;
+            }
         }
-        console.log(equation)
-        if (equation === []){
-            currNum = '0';
-            equation = [''];
-            return;
-
-        }else if (isOperator(equation[equation.length - 1]) && equation.length > 0){
+        if (isOperator(equation[equation.length - 1])){
             currNum = equation[equation.length - 2];
-        }else {
+        }else{
             currNum = equation[equation.length - 1];
         }
-        updateDisplayNum();
-        updateDisplayEquation();
-    }else {
-        return;
     }
+    
+    if (equation === [''] || equation.length === 0){
+        console.log(`equation was empty`);
+        equation = ['0'];
+        currNum = '0';
+    }
+    updateDisplayNum();
+    updateDisplayEquation();
+
 }
 /// round long decimals 
 /// display error message when user tries to divide by 0
