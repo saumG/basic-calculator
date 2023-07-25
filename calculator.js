@@ -109,6 +109,7 @@ function operationPressed(button) {
     updateDisplayEquation();
 }
 
+// returns true if the given parameter is an operator
 function isOperator(value) {
     return '+-/*'.includes(value);
 }
