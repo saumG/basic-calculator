@@ -131,6 +131,7 @@ let dictAS;
 let lowestIdxAS = 0;
 let lowestIdxMD = 0;
 
+// finds the lowest non negative value in a dictionary, returns the value or -1 if one isnt found
 function findLowestNonNegativeValue(dict) {
     let lowestNonNegative = Infinity;
 
