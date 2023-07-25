@@ -160,13 +160,15 @@ function computeEquation(equation) {
             '+': equation.indexOf('+'),
             '-': equation.indexOf('-'),
         }
-    
+        
+        // Get the lowest multiplication/division index
         lowestIdxMD = findLowestNonNegativeValue(dictMD);
-        lowestIdxAS = findLowestNonNegativeValue(dictAS);
     
         if (lowestIdxMD != -1) {
             opIdx = lowestIdxMD;
         }else {
+            // Get the lowest addition/subtraction index
+            lowestIdxAS = findLowestNonNegativeValue(dictAS);
             opIdx = lowestIdxAS;
         }
 
