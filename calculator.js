@@ -241,6 +241,7 @@ function deleteVal(){
 
 }
 
+// takes the current nummber and divides it by 100, updates the equation and display 
 function percentPressed(){
     console.log("")
     indexPrePercentage = equation.lastIndexOf(currNum);
