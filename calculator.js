@@ -3,8 +3,6 @@ MAX_DECIMAL_POINTS = 8;
 
 // ADD function, adds two nums
 function add(num1, num2) {
-    
-    console.log(`${parseInt(num1)}`);
     return ((parseFloat(num1) + parseFloat(num2)).toFixed(MAX_DECIMAL_POINTS) * 1).toString();
 }
 
@@ -25,8 +23,9 @@ function divide (dividend, divisor) {
 
 //OPERATION FUNCTION
 function operate(operation) {
+    // operation is an array in the form [first num, operator, second num]
     let operator = operation[1];
-    console.log(operator)
+
     if (operator === '+'){
         return add(operation[0], operation[2]);
     } else if (operator === '-'){
@@ -36,6 +35,7 @@ function operate(operation) {
     } else if (operator === '/'){
         return divide(operation[0], operation[2]);
     }
+    //log in the console in case the operator is not recognized
     console.log(`operator ${operator} was not recognized`);
     return;
 }
