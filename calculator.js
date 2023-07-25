@@ -172,6 +172,7 @@ function computeEquation(equation) {
             opIdx = lowestIdxAS;
         }
 
+        // create an operation vairable with the form [first num, operator, second num]
         operation = equation.slice(opIdx - 1, opIdx + 2);
         console.log(`operating on ${operation.join(' ')}`);
         result = operate(operation);
