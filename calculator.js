@@ -256,7 +256,6 @@ numberButtons = document.querySelectorAll('.number');
 operationButtons = document.querySelectorAll('.operation');
 equalButton = document.getElementById('equal');
 
-
 clearButton = document.getElementById('clear');
 deleteButton = document.getElementById('delete');
 percentButton = document.getElementById('percent');
