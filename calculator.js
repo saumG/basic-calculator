@@ -88,7 +88,9 @@ function numPressed(button) {
     updateDisplayEquation();
 }
 
+// updates variables and the display based on the operator pressed +, -, x, /
 function operationPressed(button) {
+    // set the currOperator to the button pressed
     currOperator = matchOperation[button.textContent];
 
     if (isOperator(equation[equation.length - 1])) {
