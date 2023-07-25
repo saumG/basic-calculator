@@ -273,9 +273,6 @@ operationButtons.forEach(operation => {
 });
 
 equalButton.addEventListener('click', () =>  {computeEquation(equation)});
-
 clearButton.addEventListener('click', () =>  {clear()});
-
 deleteButton.addEventListener('click', () =>  {deleteVal()});
-
 percentButton.addEventListener('click', () =>  {percentPressed()});
