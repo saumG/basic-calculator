@@ -66,6 +66,7 @@ function updateDisplayEquation() {
 // updates variables and display based on the number pressed (includes 0-9 and a .)
 function numPressed(button) {
     if (currNum.includes('.') && button.textContent == '.'){
+        // if there is already a . in the current num, dont add it
         return;
     } else if (currNum === '0' && button.textContent != '.') {
         currNum = button.textContent;
@@ -81,7 +82,6 @@ function numPressed(button) {
     
     updateDisplayNum();
     updateDisplayEquation();
-
 }
 
 function operationPressed(button) {
