@@ -147,11 +147,11 @@ function findLowestNonNegativeValue(dict) {
 
 // COMPUTE FUNCTION
 function computeEquation(equation) {
-
     equation = cleanEquationLastValue();
-    console.log(`cleaned eq ${equation.join(' ')}`)
+    // console.log(`cleaned eq ${equation.join(' ')}`)
 
     while (equation.length > 2) {
+        // get the index of each operator in the equation for the order of operations
         dictMD = {
             '*': equation.indexOf('*'),
             '/': equation.indexOf('/'),
