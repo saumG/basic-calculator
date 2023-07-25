@@ -57,6 +57,7 @@ function updateDisplayNum() {
     console.log(`updated display num to ${currNum}`);
 }
 
+// Updates the equation on the display above the normal number on the calculator
 function updateDisplayEquation() {
     equationDisplay.textContent = equation.join(' ');
     console.log(`updated display eq to ${equationDisplay.textContent}`);
