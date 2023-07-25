@@ -51,6 +51,7 @@ let matchOperation = {
     '÷':'/',
 }
 
+// Updates the display number in the display on the calculator
 function updateDisplayNum() {
     valueDisplay.textContent = currNum;
     console.log(`updated display num to ${currNum}`);
