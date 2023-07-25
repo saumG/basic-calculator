@@ -187,8 +187,9 @@ function computeEquation(equation) {
         equation.splice(opIdx - 1, 3, result);
 
     }
-    console.log(`equation length is ${equation.length}`)
+    // console.log(`equation length is ${equation.length}`)
 
+    // the equation will only be of length 1 and will contain the answer of the equation
     valueDisplay.textContent = equation[equation.length - 1];
     console.log(`value displayed... new eq ${equation.join('_')}`)
 
