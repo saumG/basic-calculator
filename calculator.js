@@ -114,6 +114,7 @@ function isOperator(value) {
     return '+-/*'.includes(value);
 }
 
+// removes the last value of the equaiton if it is an operator and cleans the first index if it is empty
 function cleanEquationLastValue() {
     console.log(`cleaning eq ${equation.join(' ')}`)
     if (isOperator(equation[equation.length - 1])) {
