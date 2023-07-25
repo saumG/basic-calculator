@@ -197,7 +197,7 @@ function computeEquation(equation) {
     currNum = valueDisplay.textContent;
 }
 
-/// clear
+/// clear function resets the variables and sets the displays to 0
 function clear() {
     equation = ['0'];
     currNum = '0';
