@@ -1,3 +1,4 @@
+// Setting max number of decimal points
 MAX_DECIMAL_POINTS = 8;
 
 // ADD function, adds two nums
