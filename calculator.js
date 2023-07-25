@@ -98,10 +98,11 @@ function operationPressed(button) {
     } else {
         equation.push(currOperator);
         currNum = '0'
+
     }
-    console.log(`operation pressed ... eq ${equation.join('_')}`);
+    // console.log(`operation pressed ... eq ${equation.join('_')}`);
     if (equation.length === 1 && isOperator(equation[0])){
-        console.log(`equation is only 1 length and has an operator`);
+        // console.log(`equation is only 1 length and has an operator`);
         equation = [''];
     }
 
