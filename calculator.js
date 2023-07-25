@@ -63,6 +63,7 @@ function updateDisplayEquation() {
     console.log(`updated display eq to ${equationDisplay.textContent}`);
 }
 
+// updates variables and display based on the number pressed (includes 0-9 and a .)
 function numPressed(button) {
     if (currNum.includes('.') && button.textContent == '.'){
         return;
