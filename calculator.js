@@ -69,6 +69,7 @@ function numPressed(button) {
         // if there is already a . in the current num, dont add it
         return;
     } else if (currNum === '0' && button.textContent != '.') {
+        // if a 0 is pressed, and there is no decimal pressed, update the number to the displayNum
         currNum = button.textContent;
     } else {
         currNum += button.textContent;
