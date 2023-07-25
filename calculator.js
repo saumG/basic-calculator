@@ -205,7 +205,7 @@ function clear() {
     updateDisplayNum();
 }
 
-/// delete instead of +-
+/// delete function deltes the last value of the last element in the equation
 function deleteVal(){
     console.log(equation)
     if (equation === [''] || equation.length === 0){
