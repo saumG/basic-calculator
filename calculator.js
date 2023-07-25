@@ -69,15 +69,18 @@ function numPressed(button) {
         // if there is already a . in the current num, dont add it
         return;
     } else if (currNum === '0' && button.textContent != '.') {
-        // if a 0 is pressed, and there is no decimal pressed, update the number to the displayNum
+        // if a 0 is pressed, and there is no decimal pressed, update the number to the currNum
         currNum = button.textContent;
     } else {
+        // if any other number is pressed, add it to the currNum
         currNum += button.textContent;
     }
     
     if (isOperator(equation[equation.length - 1])){
+        // if a number is pressed after an operator, add the number to the equation array
         equation.push(currNum);
     } else {
+        // if a number is pressed after another number, update the last element in equation to the currNum
         equation[equation.length - 1] = currNum;
     }
     
