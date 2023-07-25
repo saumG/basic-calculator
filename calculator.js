@@ -179,6 +179,7 @@ function computeEquation(equation) {
         if (result === "Infinity"){
             currNum = '0';
             equation = [''];
+            // display a snarky remark if the operation results in infiinity, division by zero. 
             valueDisplay.textContent = "BRUHHH!";
             return;
         }
